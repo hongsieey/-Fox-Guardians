@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing; //traceÅ¬·¡½º ½ÇÇàÀ» ÃßÀûÇÔ. ÄÚµåÀÇ ½ÇÇàÀ» ÃßÀûÇÏ´Âµ¥ µµ¿òÀÌ µÇ´Â ¸Ş¼­µå¿Í ¼Ó¼º ÁıÇÕ Á¦°ø
-using Unity.VisualScripting; //µ¿ÀÛÀ» µğÀÚÀÎÇÏ´Â ¿öÅ©ÇÃ·Î https://docs.unity3d.com/kr/2022.1/Manual/com.unity.visualscripting.html
+using System.Diagnostics.Tracing; //traceí´ë˜ìŠ¤ ì‹¤í–‰ì„ ì¶”ì í•¨. ì½”ë“œì˜ ì‹¤í–‰ì„ ì¶”ì í•˜ëŠ”ë° ë„ì›€ì´ ë˜ëŠ” ë©”ì„œë“œì™€ ì†ì„± ì§‘í•© ì œê³µ
+using Unity.VisualScripting; //ë™ì‘ì„ ë””ìì¸í•˜ëŠ” ì›Œí¬í”Œë¡œ https://docs.unity3d.com/kr/2022.1/Manual/com.unity.visualscripting.html
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Singleton
 {
-    public class Singleton<T>: MonoBehaviour where T : Component
+    public class Singleton<T>: MonoBehaviour where T : Component  //<T>ëŠ” ê²Œì„ì˜¤ë¸Œì íŠ¸ íƒ€ì… ë¯¸ì •ìƒíƒœë¡œ
     {
         private static T _instance;
 
@@ -46,7 +46,7 @@ namespace Singleton
             }
         }
     }
-    //ÇÑ ¿ÀºêÁ§Æ®¸¸ ÀÖÀ» ¼ö ÀÖ°Ô
+    //í•œ ì˜¤ë¸Œì íŠ¸ë§Œ ìˆì„ ìˆ˜ ìˆê²Œ
 
 
     public class GameManager : Singleton<GameManager>
@@ -55,12 +55,12 @@ namespace Singleton
         private DateTime startTime;
         private DateTime endTime;
 
-        //½ºÄÌ·¹Åæ ÄÚµå
+        //ìŠ¤ì¼ˆë ˆí†¤ ì½”ë“œ
         void Start()
         {
 
-            //ÇÃ·¹ÀÌ¾î ¼¼ÀÌºê ·Îµå
-            //¼¼ÀÌºê°¡ ¾øÀ¸¸é ÇÃ·¹ÀÌ¾î µî·Ï ¾ÀÀ¸·Î ¸®´ÙÀÌ·º¼Ç
+            //í”Œë ˆì´ì–´ ì„¸ì´ë¸Œ ë¡œë“œ
+            //ì„¸ì´ë¸Œê°€ ì—†ìœ¼ë©´ í”Œë ˆì´ì–´ ë“±ë¡ ì”¬ìœ¼ë¡œ ë¦¬ë‹¤ì´ë ‰ì…˜
 
             startTime = DateTime.Now;
             Debug.Log("Game session start @: " + DateTime.Now);
@@ -74,7 +74,7 @@ namespace Singleton
             Debug.Log("Game session lasted: " + timeDifference);
         }
 
-        //½Ì±ÛÅÏ ±¸Çö È®ÀÎ
+        //ì‹±ê¸€í„´ êµ¬í˜„ í™•ì¸
        /* void OnGUI()
         {
             if (GUILayout.Button("Next Scene"))
